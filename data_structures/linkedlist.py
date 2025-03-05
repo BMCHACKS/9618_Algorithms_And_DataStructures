@@ -86,7 +86,9 @@ def Output_LinkedList():
     while current != -1:
         print(LinkedList[current].data)
         current = LinkedList[current].pointer
-    
+
+
+# THIS OUTPUT IS MADE FOR TESTING CODE ONLY!
 def Output():
     global start, free
     for x in range(len(LinkedList)): 
@@ -107,6 +109,8 @@ LinkedList[4].pointer = -1
 start = -1
 free = 0
 
+
+# IGNORE CODE BELOW, ITS FOR TESTING PURPOSES ONLY
 Output()
 
 while True:
