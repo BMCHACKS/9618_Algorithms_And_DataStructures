@@ -4,3 +4,11 @@
 # hello world!
 
 Note: Not All Variants have been added. The best general case has been made for Data Structures.
+
+Things to ignore:
+
+- If you're unused to looking at something like `def my_function(data: str | int) -> bool:`, then kidnly consider it as `def my_function(data):` the data type was added to show the possible data-type that can be passed as a parameter
+- You can ignore the comments; they're to guide & explain the code (I'd recommend, download the code & editing them off)
+
+
+Well that's all. If you do find an error. Send an `issue,` or if you fix it, send a `pull request,` and I'll review it.
