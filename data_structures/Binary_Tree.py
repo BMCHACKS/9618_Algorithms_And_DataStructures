@@ -68,6 +68,8 @@ def PostOrder(root):
     if BinaryTree[root].rightpointer != -1: PostOrder(BinaryTree[root].rightpointer)
     print(BinaryTree[root].data, end=" ")
 
+
+# IGNORE this output function below; it's for testing purposes only! 
 def Output_BinaryTree():
     for x in range(len(BinaryTree)):
         print(f"index: {x} | leftpointer: {BinaryTree[x].leftpointer} | data: {BinaryTree[x].data} | rightpointer: {BinaryTree[x].rightpointer}")
@@ -97,6 +99,8 @@ for x in range(len(BinaryTree)):
 
 BinaryTree[4].leftpointer = -1
 
+
+# IGNORE CODE BELOW, ITS FOR TESTING PURPOSES ONLY
 while True:
     print()
     choice = int(input("Enter 1 to Add, 2 for Inorder, 3 for postorder > "))
