@@ -7,7 +7,7 @@ def binary_search(this_array: list, to_search: int | str) -> int:
     `to_search` is the value to find \n
     returns `-1` if value not found \n
     Takes a list and returns the index position of the value in the list \n
-    List must be already sorted in accending order
+    The list must be already sorted in ascending order
     '''
     low, top = 0, len(this_array)-1
     while top >= low:
