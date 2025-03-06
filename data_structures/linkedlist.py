@@ -13,10 +13,10 @@ def Add(data: str):
         new = free
         LinkedList[new].data = data
         free = LinkedList[new].pointer
-        LinkedList[new].pointer = -1
-
+        
         if start == -1:
             start = new
+            LinkedList[new].pointer = -1
         else:
             # now we'll find a location for the node
             current = start
