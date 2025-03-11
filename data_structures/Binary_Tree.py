@@ -24,7 +24,7 @@ def Add(data):
     global root, NextFree
     # we firstly check if there is SPACE or not
     if NextFree == -1:
-        print("[ERROR] BinaryTree is full right!")
+        print("[ERROR] BinaryTree is full!")
     else:
         # meaning there is atleast 1 space
         New = NextFree
