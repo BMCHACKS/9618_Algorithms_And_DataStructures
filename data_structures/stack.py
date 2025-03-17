@@ -41,7 +41,7 @@ def pop() -> int | str:
 
     # first check if stack is empty or not
 
-    retrun_data = 0 # or "" depending on the data sotred in the stack
+    return_data = 0 # or "" depending on the data sotred in the stack
     if Head == 0: return retrun_data
 
     Head -= 1
