@@ -1,13 +1,13 @@
 
 
 '''
-There are 2 types of binary trees in questions
+There are 2 types of binary trees in ppqs
 
 1. Made with OOP
 2. Made with 2D-Array
+3. Fill in pseudocode blanks (then convert to python)
 
-
-Now binary trees hae these things
+For binary trees we need to know these things:
 
 -> Make the binary tree
 
@@ -19,7 +19,7 @@ Now binary trees hae these things
 
 '''
 
-# ADD DATA is ALWAYS IN ORDER for a BINARY TREE
+# ADDING DATA is ALWAYS ORDERED for a BINARY TREE
 def Add(data):
     global root, NextFree
     # we firstly check if there is SPACE or not
