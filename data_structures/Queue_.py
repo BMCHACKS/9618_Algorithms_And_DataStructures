@@ -18,7 +18,7 @@ def Enqueue(data):
         # meaning there are ZERO spaces left
         print("[ERROR] Queue is full!")
     else:
-        # meaning there is some spaces left
+        # meaning there is AT LEAST 1 space
         Queue[TailPointer] = data
         TailPointer += 1
         Free -= 1
@@ -30,11 +30,12 @@ def Enqueue(data):
         check if tailpointer is greater than
         available index positions.
         
-        In this case we have 0-4 index
+        In this case we have 0-4 index available
         so total size = 5
 
-        if TailPointer equal size we have to 
+        if TailPointer is equal to size we have to 
         WRAP it around. 
+        
         This is what makes a `circular` queue
 
         '''
@@ -55,7 +56,7 @@ def Dequeue():
         # same reason as TailPointer in Enqueue()
         if HeadPointer == size: HeadPointer = 0
 
-        # here we reset HeadPointer & TailPointer since, there are NO MORE ELEMENTS LEFT
+        # here below we reset HeadPointer & TailPointer since, there are NO MORE ELEMENTS LEFT
         if Free == 5: HeadPointer, TailPointer = -1, 0
 
         print(f"Data removed > {return_data}")
