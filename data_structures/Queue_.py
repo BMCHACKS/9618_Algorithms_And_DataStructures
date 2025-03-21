@@ -5,14 +5,9 @@ There are 2 types of queue in the exam
 1. Linear Queue
 2. Circular Queue
 
-Sometimes the Queue is made with OOP or just like below with an Array and pointer
+^ both are fairly simple and the only difference is how their functions (Enqueue & Dequeue) operate
 
-both are fairly simple and the only difference is how their functions operate
-and a new variable 
-
-- Enqueue 
-- Dequeue
-
+NOTE: Sometimes the Queue is made with OOP or just like below with an Array and pointers
 '''
 
 def Enqueue(data):
