@@ -23,8 +23,8 @@ def Add(data: str):
             while current != -1 and data > LinkedList[current].data:
                 previous = current
                 current = LinkedList[current].pointer
-            # meaning we need to place this new node is now the new START node
             if current == start:
+                # meaning this new node is now the new START node
                 LinkedList[new].pointer = start
                 start = new
             else:
