@@ -57,7 +57,7 @@ def Remove(to_remove):
             previous = current
             current = LinkedList[current].pointer
         
-        # after this loops end, either we'll have found the value or not
+        # after the end of this loop, either we'll have found the value or not
 
         # third step - Check if we found it or not
 
@@ -65,18 +65,18 @@ def Remove(to_remove):
             print("[ERROR] Value not found!")
         else:
             # meaning we've found the value 
-            # step 4 - now remove the value and adjust the pointers
+            # Step 4 - now remove the value and adjust the pointers
 
-            # we dont have to do this, but for this case we'll overwrite the data in that pos with "removed" 
+            # We don't have to do this, but for this case, we'll overwrite the data in that pos with "removed" 
             LinkedList[current].data = "removed"
             nextNode = LinkedList[current].pointer
             if current == start:
                 start = nextNode
             else:
-                # meaning ITS not the first value, it maybe the second, third or last
+                # meaning it is not the first value, it can be the second, third, or last
                 LinkedList[previous].pointer = nextNode
             
-            # we also gotta now fix the pointer for FREE 
+            # we also gotta fix the pointer for FREE 
             LinkedList[current].pointer = free
             free = current
     
