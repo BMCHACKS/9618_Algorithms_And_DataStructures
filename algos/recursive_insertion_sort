@@ -1,4 +1,4 @@
-def recursive_insertion_sort(array: int | str, i, j: int, key: int | str) -> list:
+def recursive_insertion_sort(array: list[int | str], i, j: int, key: int | str) -> list:
     if j >= 0 and key < array[j]:
         array[j+1] = array[j]
         return recursive_insertion_sort(array, i, j-1, key)
