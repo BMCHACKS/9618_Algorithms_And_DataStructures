@@ -2,14 +2,16 @@
 
 def bubble_sort(this_array: list) -> list:
     '''
-    (arrays are basically lists) \n
+    (arrays are lists) \n
     takes `this_array` and sorts it in accending order \n
     to sort it in decending order change condition `if this_array[y] > this_array[y+1]:` to `if this_array[y] < this_array[y+1]:`
     '''
     for x in range(len(this_array)):
         swap = False
         for y in range(len(this_array)-x-1):
-            if this_array[y] > this_array[y+1]: this_array[y], this_array[y+1], swap = this_array[y+1], this_array[y], True
+            if this_array[y] > this_array[y+1]: 
+                this_array[y], this_array[y+1]= this_array[y+1], this_array[y]
+                swap = True
         if not swap: break
     return this_array
 
