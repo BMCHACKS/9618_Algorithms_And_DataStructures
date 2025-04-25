@@ -9,11 +9,12 @@ def Add(data: str):
         print("[ERROR] LinkedList is full!")
     # else we add the node
     else:
-        # first see if its the FIRST node we're adding
+        # place the data into the location pointed to by FREE
         new = free
         LinkedList[new].data = data
         free = LinkedList[new].pointer
         
+        # first see if its the FIRST node we're adding
         if start == -1:
             start = new
             LinkedList[new].pointer = -1
