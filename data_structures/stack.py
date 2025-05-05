@@ -42,7 +42,7 @@ def pop() -> int | str:
     # first check if stack is empty or not
 
     return_data = 0 # or "" depending on the data stored in the stack
-    if Head == 0: return retrun_data
+    if Head == 0: return return_data
 
     Head -= 1
     return_data = stack[Head]
