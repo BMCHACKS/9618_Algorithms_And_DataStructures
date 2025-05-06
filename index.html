@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Code Vault</title>
-  <link rel="stylesheet" href="style.css?v=001" />
+  <link rel="stylesheet" href="style.css?v=002" />
 
   <!-- DM Sans / why? BECAUSE I LIKE IT YOU RAT, stop looking here >:O -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
@@ -75,7 +75,7 @@ def bubble_sort(array):
         <p class="description">Insertion Sort is a straightforward sorting algorithm that builds the final sorted list one element at a time. It works similarly to how you might sort playing cards in your hand.
             At each step, it takes one element from the unsorted portion and inserts it into its correct position in the sorted portion by shifting larger elements to the right.</p>
         <pre class="line-numbers"><code class="language-python">
-def insertion_srot(array):
+def insertion_sort(array):
     for i in range(1, len(array)):
         key = array[i]
         j = i - 1
@@ -168,7 +168,7 @@ Free = size
         <p class="description">Each node contains data and a pointer to the next node’s index, forming a chain. Instead of using dynamic memory, it manages free space using a free pointer and keeps track of the first element using start.</p>
         <p class="description">Nodes are connected logically by pointers, not physically by position in memory, allowing efficient insertion and deletion without shifting elements.</p>
         <pre class="line-numbers"><code class="language-python">
-def Add(data: str):
+def Add(data):
     global start, free
 
     if free == -1:
