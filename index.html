@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Vault</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- DM Sans / why? BECAUSE I LIKE IT YOU RAT, stop looking here >:O -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Prism.js Themes & Plugins -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Data Structures & Algorithms</h1>
+    <p class="comment">9618 A Levels P4 Algorithms and Data Structures – general codes!</p>
+
+    <div class="snippet">
+        <h2>Linear Search</h2>
+        <p class="description">A simple searching algorithm, checks values one by one, returns the index position if the value is found in the array, otherwise returns -1</p>
+        <pre class="line-numbers"><code class="language-python">
+def linear_search(to_find, array):
+    for x in range(len(array)):
+        if to_find == array[x]: 
+            return x
+    return -1
+        </code></pre>
+    </div>
+
+    <div class="snippet">
+      <h2>Binary Search</h2>
+      <p class="description">A classic divide-and-conquer algorithm that efficiently finds the target's index in a sorted array.
+        Though, before you can use a binary search, you'll need to make sure that the list/array you're applying the algorithm to is already sorted.
+      </p>
+      <pre class="line-numbers"><code class="language-python">
+def binary_search(to_find, array):    
+    low = 0
+    top = len(array)
+    while low <= top:
+        mid = (low + top) // 2
+        if array[mid] == to_find:
+            return mid
+        if to_find > array[mid]:
+            low = mid + 1
+        else:
+            top = mid - 1
+    return - 1
+    </code></pre>
+    </div>
+
+
+    <div class="snippet">
+        <h2>Bubble Sort</h2>
+        <p class="description">Bubble Sort is a simple sorting algorithm that repeatedly steps through a list, compares adjacent elements, and swaps them if they are in the wrong order. This process continues until the entire list is sorted.
+            The algorithm gets its name because smaller elements "bubble" to the top of the list (front), while larger elements sink to the bottom (end).</p>
+        <pre class="line-numbers"><code class="language-python">
+def bubble_sort(array):
+    count = 0
+    swap = True
+    while count != len(array)-1 and swap:
+        swap = False
+        for x in range(len(array)-1-count):
+            if array[x] > array[x+1]:
+                array[x], array[x+1] = array[x+1], array[x]
+                swap = True
+        count += 1
+    return array
+        </code></pre>
+    </div>
+
+    <div class="snippet">
+        <h2>Insertion Sort</h2>
+        <p class="description">Insertion Sort is a straightforward sorting algorithm that builds the final sorted list one element at a time. It works similarly to how you might sort playing cards in your hand.
+            At each step, it takes one element from the unsorted portion and inserts it into its correct position in the sorted portion by shifting larger elements to the right.</p>
+        <pre class="line-numbers"><code class="language-python">
+def insertion_srot(array):
+    for i in range(1, len(array)):
+        key = array[i]
+        j = i - 1
+        while j >= 0 and key < array[j]:
+            array[j+1] = array[j]
+            j -= 1
+        array[j+1] = key
+    return array
+        </code></pre>
+    </div>
+
+    <div class="snippet">
+        <h2>Stack</h2>
+        <p class="description">A stack is a linear data structure that follows the Last In, First Out (LIFO) principle. This means the last item added to the stack is the first one to be removed—just like a stack of plates where you take the top plate off first.</p>
+        <pre class="line-numbers"><code class="language-python">
+size = 10
+stack = [-1 for _ in range(size)]
+Head = 0 # points towards the next free space 
+
+def push(to_push):
+    global Head
+
+    if Head == size: 
+        return False
+    stack[Head] = to_push
+    Head += 1
+    return True
+
+def pop():
+    global Head
+
+    return_data = 0
+    if Head == 0: 
+        return return_data
+    Head -= 1
+    return stack[Head]
+        </code></pre>
+    </div>
+
+    <div class="snippet">
+        <h2>Queue (Linear | Circular)</h2>
+        <p class="description">A linear queue is a First In, First Out (FIFO) data structure where elements are added (enqueued) at the rear and removed (dequeued) from the front. It is called "linear" because elements are arranged in a straight line</p>
+        <p class="description">A circular queue is an improved version of a linear queue where the last position is connected back to the first, forming a circle. It efficiently reuses space by wrapping around when the end is reached.</p>
+        <pre class="line-numbers"><code class="language-python">
+def Enqueue(data):
+    global HeadPointer, TailPointer, Free
+    
+    if Free == 0:
+        print("[ERROR] Queue is full!")
+    else:
+        Queue[TailPointer] = data
+        TailPointer += 1
+        Free -= 1
+        
+        if HeadPointer == -1: 
+            HeadPointer = 0
+        if TailPointer == size: 
+            TailPointer = 0
+        print("Data added!")
+
+def Dequeue():
+    global HeadPointer, TailPointer, Free
+
+    if Free == 5:
+        print("[ERROR] Queue is empty!")
+    else:
+        return_data = Queue[HeadPointer]
+        HeadPointer += 1
+        Free += 1
+
+        if HeadPointer == size: 
+            HeadPointer = 0
+        if Free == size: 
+            HeadPointer = -1
+            TailPointer = 0
+        print(f"Data removed > {return_data}")
+
+# main
+size = 5
+Queue = ["" for _ in range(size)]
+HeadPointer = -1 # points to the FIRST element in the Queue
+TailPointer = 0 # points to the NEXT free space in the Queue
+Free = size
+        </code></pre>
+    </div>
+
+    <div class="snippet">
+        <h2>LinkedList</h2>
+        <p class="description">This code represents a static linked list, a data structure where elements (called nodes) are stored in a fixed-size array. </p>
+        <p class="description">Each node contains data and a pointer to the next node’s index, forming a chain. Instead of using dynamic memory, it manages free space using a free pointer and keeps track of the first element using start.</p>
+        <p class="description">Nodes are connected logically by pointers, not physically by position in memory, allowing efficient insertion and deletion without shifting elements.</p>
+        <pre class="line-numbers"><code class="language-python">
+def Add(data: str):
+    global start, free
+
+    if free == -1:
+        print("[ERROR] LinkedList is full!")
+    else:
+        new = free
+        LinkedList[new].data = data
+        free = LinkedList[new].pointer
+        
+        if start == -1:
+            start = new
+            LinkedList[new].pointer = -1
+        else:
+            current = start
+            while current != -1 and data > LinkedList[current].data:
+                previous = current
+                current = LinkedList[current].pointer
+            
+            if current == start:
+                LinkedList[new].pointer = start
+                start = new
+            else:
+                LinkedList[new].pointer = LinkedList[previous].pointer
+                LinkedList[previous].pointer = new
+
+
+def Remove(to_remove):
+    global start, free
+
+    if start == -1: 
+        print("[ERROR] LinkedList is empty!")
+    else:
+        current = start
+        while current != -1 and LinkedList[current].data != to_remove:
+            previous = current
+            current = LinkedList[current].pointer
+        
+        if current == -1:
+            print("[ERROR] Value not found!")
+        else:
+            nextNode = LinkedList[current].pointer
+            if current == start:
+                start = nextNode
+            else:
+                LinkedList[previous].pointer = nextNode
+             
+            LinkedList[current].pointer = free
+            free = current
+
+    
+def Output_LinkedList():
+    current = start
+    while current != -1:
+        print(LinkedList[current].data)
+        current = LinkedList[current].pointer
+
+# main
+
+class Node:
+    def __init__(self, data, pointer):
+        self.data = data
+        self.pointer = pointer
+
+size = 5
+LinkedList = [Node("", x+1) for x in range(size)]
+LinkedList[size-1].pointer = -1
+start = -1 # points to the first node in the binary tree
+free = 0 # points to the next free location 
+        </code></pre>
+    </div>
+
+    <div class="snippet">
+        <h2>Binary Tree</h2>
+        <p class="description">This code represents a static binary search tree, a data structure where each node holds data and pointers to its left and right child nodes. The nodes are stored in a fixed-size array, and NextFree manages the next available spot for inserting a new node. </p>
+        <p class="description">The root variable tracks the index of the tree’s root. When a value is added, it’s placed in the correct position based on comparisons—smaller values go left, larger go right. Tree traversals like PreOrder, InOrder, and PostOrder are also implemented for visiting nodes in specific orders.</p>
+        <pre class="line-numbers"><code class="language-python">
+def Add(data):
+    global root, NextFree
+
+    if NextFree == -1:
+        print("[ERROR] BinaryTree is full!")
+    else:
+        New = NextFree
+        BinaryTree[New].data = data
+        NextFree = BinaryTree[New].leftpointer
+        BinaryTree[New].leftpointer = -1
+        if root == -1:
+            root = New
+        else:
+            current = root
+            smaller = False
+            while current != -1:
+                previous = current
+                if data > BinaryTree[current].data:
+                    current = BinaryTree[current].rightpointer
+                    smaller = False
+                else:
+                    current = BinaryTree[current].leftpointer
+                    smaller = True
+
+            if smaller:
+                BinaryTree[previous].leftpointer = New
+            else:
+                BinaryTree[previous].rightpointer = New
+
+def PreOrder(root):
+    print(BinaryTree[root].data)
+    if BinaryTree[root].leftpointer != -1: 
+        PreOrder(BinaryTree[root].leftpointer)
+    if BinaryTree[root].rightpointer != -1: 
+        PreOrder(BinaryTree[root].rightpointer)
+        
+def InOrder(root):
+    if BinaryTree[root].leftpointer != -1: 
+        InOrder(BinaryTree[root].leftpointer)
+    print(BinaryTree[root].data)
+    if BinaryTree[root].rightpointer != -1: 
+        InOrder(BinaryTree[root].rightpointer)
+
+def PostOrder(root):
+    if BinaryTree[root].leftpointer != -1: 
+        PostOrder(BinaryTree[root].leftpointer)
+    if BinaryTree[root].rightpointer != -1: 
+        PostOrder(BinaryTree[root].rightpointer)
+    print(BinaryTree[root].data)
+
+
+# main
+
+class Node:
+def __init__(self):
+    self.leftpointer = -1
+    self.data = ""
+    self.rightpointer = -1
+
+size = 5
+BinaryTree = [Node() for _ in range(size)]
+root = -1 # points to the first node in the binary tree
+NextFree = 0 # points to the next free location  
+
+for x in range(len(BinaryTree)):
+    BinaryTree[x].leftpointer = x+1
+BinaryTree[4].leftpointer = -1
+        </code></pre>
+    </div>
+
+  </div>
+
+  <!-- Prism Core + Python + Line Numbers -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+</body>
+</html>
