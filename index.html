@@ -57,6 +57,28 @@ def binary_search(to_find, array):
     </div>
     </div>
 
+<div class="code-panel">
+    <div class="snippet">
+        <h2 id="code2.1"></h2>
+        <h2>Recursive Binary Search</h2>
+        <p class="description">Simple recursive binary search algorithm that has come in the previous exams!
+        </p>
+        <pre class="line-numbers"><code class="language-python">
+def recursive_binary_search(array, to_search, low, top):
+    # base case, return -1 to show value does not exist
+    if top < low:
+        return -1
+    mid = (low + top) // 2
+    if array[mid] == to_search:
+        return mid
+    if to_search > array[mid]:
+        return recursive_binary_search(array, to_search, mid+1, top)
+    return recursive_binary_search(array, to_search, low, mid-1)
+    </code></pre>
+    </div>
+    </div>
+    
+
     <div class="code-panel">
     <div class="snippet">
         <h2 id="code3"></h2>
@@ -67,7 +89,7 @@ def binary_search(to_find, array):
 def bubble_sort(array):
     count = 0
     swap = True
-    while count != len(array)-1 and swap:
+    while swap:
         swap = False
         for x in range(len(array)-1-count):
             if array[x] > array[x+1]:
