@@ -1,13 +1,13 @@
 
 
 '''
-There are 2 types of binary trees in ppqs
+There are 2 types of binary trees in PPQs
 
 1. Made with OOP
-2. Made with 2D-Array
-3. Fill in pseudocode blanks (then convert to python)
+2. Made with a 2D array
+3. Fill in pseudocode blanks (then convert to Python)
 
-For binary trees we need to know these things:
+For binary trees, we need to know these things:
 
 -> Make the binary tree
 
@@ -16,6 +16,7 @@ For binary trees we need to know these things:
 
 -> Output InOrder USING RECURSION ONLY 
 -> Output PostOrder USING RECURSION ONLY 
+-> Output PreOrder USING RECURSION ONLY
 
 '''
 
@@ -114,3 +115,4 @@ while True:
             print()
     Output_BinaryTree()
     print()
+
