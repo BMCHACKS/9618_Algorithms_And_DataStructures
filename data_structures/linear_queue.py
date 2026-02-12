@@ -1,7 +1,8 @@
 
 def Enqueue(value):
-    global Head, Tail
-    if Tail == len(LinearQueue):
+    global Head, Tail, Size
+    
+    if Tail == Size:
         print("There is no more space in the Q!")
     else:
         LinearQueue[Tail] = value
@@ -11,6 +12,7 @@ def Enqueue(value):
 
 def Dequeue():
     global Head, Tail
+    
     if Head == -1:
         print("Queue is empty! - Nothing to remove!")
         return ""
@@ -18,9 +20,11 @@ def Dequeue():
         value = LinearQueue[Head]
         LinearQueue[Head] = ""
         Head += 1
+        
         if Head == Tail:
             Head = -1
             Tail = 0
+            
         return value
 
 Size        = 7
@@ -40,3 +44,4 @@ for x in range(20):
         if value != "":
             print(f"Dequeued : {value}")
     print(LinearQueue)
+
