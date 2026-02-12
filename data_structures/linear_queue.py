@@ -29,7 +29,7 @@ def Dequeue():
 
 Size        = 7
 LinearQueue = ["" for _ in range(size)]
-Head        = -1 # Points towards the FIRST person in the q
+Head        = -1 # Points towards the FIRST item in the q
 Tail        = 0  # Points towards the NEXT FREE SPACE in a q
 
 
@@ -44,4 +44,5 @@ for x in range(20):
         if value != "":
             print(f"Dequeued : {value}")
     print(LinearQueue)
+
 
