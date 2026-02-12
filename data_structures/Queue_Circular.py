@@ -1,19 +1,22 @@
 
 def Enqueue(value):
-    global Head, Tail, Free
+    global Head, Tail, Free, Size
+    
     if Free == 0:
         print("There is no more space in the Q!")
     else:
         CircularQueue[Tail] = value
         Tail += 1
         Free -= 1
+        
         if Head == -1:
             Head = 0
-        if Tail > len(CircularQueue)-1:
+        if Tail > Size-1:
             Tail = 0
 
 def Dequeue():
-    global Head, Tail, Free
+    global Head, Tail, Free, Size
+    
     if Free == 7:
         print("Queue is empty! - Nothing to remove!")
         return ""
@@ -22,7 +25,8 @@ def Dequeue():
         value = CircularQueue[Head]
         CircularQueue[Head] = ""
         Head += 1
-        if Head > len(CircularQueue)-1:
+        
+        if Head > Size-1:
             Head = 0
         if Free == 7:
             Head = -1
@@ -46,3 +50,4 @@ for x in range(20):
         if value != "":
             print(f"Dequeued : {value}")
     print(CircularQueue)
+
