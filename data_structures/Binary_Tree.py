@@ -23,24 +23,24 @@ For binary trees, we need to know these things:
 # ADDING DATA is ALWAYS ORDERED for a BINARY TREE
 def Add(data):
     global root, NextFree
-    # we firstly check if there is SPACE or not
+    # We first check if there is a SPACE or not
     if NextFree == -1:
         print("[ERROR] BinaryTree is full!")
     else:
-        # meaning there is atleast 1 space
+        # meaning there is at least 1 space
         New = NextFree
         BinaryTree[New].data = data
         NextFree = BinaryTree[New].leftpointer
         BinaryTree[New].leftpointer = -1
         if root == -1:
-            # meaning its the VERY FIRST node to be added
+            # meaning it's the VERY FIRST node to be added
             root = New
         else:
             # meaning there are more nodes
             # we have to find the LOCAION for the new data
             # we'll start from the FIRST / ROOT node
             current = root
-            # now we'll need a variable named `smaller` which'll indiacte
+            # now we'll need a variable named `smaller` which'll indicate
             # if the root is to be placed on the left or right
             smaller = False
             while current != -1:
@@ -58,11 +58,15 @@ def Add(data):
             else:
                 BinaryTree[previous].rightpointer = New
 
+def PreOrder(root):
+    print(BinaryTree[root].data, end=" ")
+    if BinaryTree[root].leftpointer != -1: PreOrder(BinaryTree[root].leftpointer)
+    if BinaryTree[root].rightpointer != -1: PreOrder(BinaryTree[root].rightpointer)
+        
 def InOrder(root):
     if BinaryTree[root].leftpointer != -1: InOrder(BinaryTree[root].leftpointer)
     print(BinaryTree[root].data, end=" ")
     if BinaryTree[root].rightpointer != -1: InOrder(BinaryTree[root].rightpointer)
-
 
 def PostOrder(root):
     if BinaryTree[root].leftpointer != -1: PostOrder(BinaryTree[root].leftpointer)
@@ -90,8 +94,8 @@ BinaryTree = [Node() for _ in range(size)]
 root = -1
 NextFree = 0
 
-# so far its like a linkedlist
-# now let's make the leftpointer point to the NEXT index so the bt can be connected
+# so far it's like a linked list
+# now let's make the left pointer point to the NEXT index so the BT can be connected
 
 for x in range(len(BinaryTree)):
     BinaryTree[x].leftpointer = x+1
@@ -101,7 +105,7 @@ for x in range(len(BinaryTree)):
 BinaryTree[4].leftpointer = -1
 
 
-# IGNORE CODE BELOW, ITS FOR TESTING PURPOSES ONLY
+# IGNORE CODE BELOW, IT'S FOR TESTING PURPOSES ONLY
 while True:
     print()
     choice = int(input("Enter 1 to Add, 2 for Inorder, 3 for postorder > "))
