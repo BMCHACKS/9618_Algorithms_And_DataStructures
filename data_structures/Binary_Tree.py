@@ -28,10 +28,12 @@ def Add(data):
         print("[ERROR] BinaryTree is full!")
     else:
         # meaning there is at least 1 space
-        New = NextFree
-        BinaryTree[New].data = data
-        NextFree = BinaryTree[New].leftpointer
-        BinaryTree[New].leftpointer = -1
+        New                          = NextFree
+        BinaryTree[New].data         = data
+        NextFree                     = BinaryTree[New].leftpointer
+        BinaryTree[New].leftpointer  = -1
+        BinaryTree[New].rightpointer = -1
+        
         if root == -1:
             # meaning it's the VERY FIRST node to be added
             root = New
@@ -54,7 +56,7 @@ def Add(data):
 
             # now we'll place the node
             if smaller:
-                BinaryTree[previous].leftpointer = New
+                BinaryTree[previous].leftpointer  = New
             else:
                 BinaryTree[previous].rightpointer = New
 
@@ -85,14 +87,14 @@ def Output_BinaryTree():
 
 class Node:
     def __init__(self):
-        self.leftpointer = -1
-        self.data = ""
+        self.leftpointer  = -1
+        self.data         = ""
         self.rightpointer = -1
 
-size = 5
+size       = 5
 BinaryTree = [Node() for _ in range(size)]
-root = -1
-NextFree = 0
+root       = -1
+NextFree   = 0
 
 # so far it's like a linked list
 # now let's make the left pointer point to the NEXT index so the BT can be connected
