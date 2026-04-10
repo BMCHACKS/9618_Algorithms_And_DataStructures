@@ -296,10 +296,12 @@ def Add(data):
     if NextFree == -1:
         print("[ERROR] BinaryTree is full!")
     else:
-        New = NextFree
-        BinaryTree[New].data = data
-        NextFree = BinaryTree[New].leftpointer
-        BinaryTree[New].leftpointer = -1
+        New                          = NextFree
+        BinaryTree[New].data         = data
+        NextFree                     = BinaryTree[New].leftpointer
+        BinaryTree[New].leftpointer  = -1
+        BinaryTree[New].rightpointer = -1
+        
         if root == -1:
             root = New
         else:
@@ -315,7 +317,7 @@ def Add(data):
                     smaller = True
 
             if smaller:
-                BinaryTree[previous].leftpointer = New
+                BinaryTree[previous].leftpointer  = New
             else:
                 BinaryTree[previous].rightpointer = New
 
@@ -345,14 +347,14 @@ def PostOrder(root):
 
 class Node:
     def __init__(self):
-        self.leftpointer = -1
-        self.data = ""
+        self.leftpointer  = -1
+        self.data         = ""
         self.rightpointer = -1
 
-size = 5
+size       = 5
 BinaryTree = [Node() for _ in range(size)]
-root = -1 # points to the first node in the binary tree
-NextFree = 0 # points to the next free location  
+root       = -1 # points to the first node in the binary tree
+NextFree   = 0 # points to the next free location  
 
 for x in range(len(BinaryTree)):
     BinaryTree[x].leftpointer = x+1
