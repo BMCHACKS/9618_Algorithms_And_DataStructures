@@ -104,7 +104,7 @@ for x in range(len(BinaryTree)):
 
 # finally make the LAST pointer NULL
 
-BinaryTree[4].leftpointer = -1
+BinaryTree[size-1].leftpointer = -1
 
 
 # IGNORE CODE BELOW, IT'S FOR TESTING PURPOSES ONLY
