@@ -322,27 +322,23 @@ def Add(data):
                 BinaryTree[previous].rightpointer = New
 
 def PreOrder(root):
-    print(BinaryTree[root].data)
-    if BinaryTree[root].leftpointer != -1: 
+    if root != -1:
+        print(BinaryTree[root].data)
         PreOrder(BinaryTree[root].leftpointer)
-    if BinaryTree[root].rightpointer != -1: 
         PreOrder(BinaryTree[root].rightpointer)
         
 def InOrder(root):
-    if BinaryTree[root].leftpointer != -1: 
+    if root != -1:
         InOrder(BinaryTree[root].leftpointer)
-    print(BinaryTree[root].data)
-    if BinaryTree[root].rightpointer != -1: 
+        print(BinaryTree[root].data)
         InOrder(BinaryTree[root].rightpointer)
 
 def PostOrder(root):
-    if BinaryTree[root].leftpointer != -1: 
+    if root != -1:
         PostOrder(BinaryTree[root].leftpointer)
-    if BinaryTree[root].rightpointer != -1: 
         PostOrder(BinaryTree[root].rightpointer)
-    print(BinaryTree[root].data)
-
-
+        print(BinaryTree[root].data)
+          
 # main
 
 class Node:
