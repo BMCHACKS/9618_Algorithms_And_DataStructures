@@ -60,20 +60,24 @@ def Add(data):
             else:
                 BinaryTree[previous].rightpointer = New
 
+# Credit to @zi_zuzu (discord) for pointing out a flaw in the 3 traversals.
 def PreOrder(root):
-    print(BinaryTree[root].data, end=" ")
-    if BinaryTree[root].leftpointer != -1: PreOrder(BinaryTree[root].leftpointer)
-    if BinaryTree[root].rightpointer != -1: PreOrder(BinaryTree[root].rightpointer)
+    if root != -1:
+        print(BinaryTree[root].data, end=" ")
+        PreOrder(BinaryTree[root].leftpointer)
+        PreOrder(BinaryTree[root].rightpointer)
         
 def InOrder(root):
-    if BinaryTree[root].leftpointer != -1: InOrder(BinaryTree[root].leftpointer)
-    print(BinaryTree[root].data, end=" ")
-    if BinaryTree[root].rightpointer != -1: InOrder(BinaryTree[root].rightpointer)
+    if root != -1:
+        InOrder(BinaryTree[root].leftpointer)
+        print(BinaryTree[root].data, end=" ")
+        InOrder(BinaryTree[root].rightpointer)
 
 def PostOrder(root):
-    if BinaryTree[root].leftpointer != -1: PostOrder(BinaryTree[root].leftpointer)
-    if BinaryTree[root].rightpointer != -1: PostOrder(BinaryTree[root].rightpointer)
-    print(BinaryTree[root].data, end=" ")
+    if root != -1:
+        PostOrder(BinaryTree[root].leftpointer)
+        PostOrder(BinaryTree[root].rightpointer)
+        print(BinaryTree[root].data, end=" ")
 
 
 # IGNORE this output function below; it's for testing purposes only! 
