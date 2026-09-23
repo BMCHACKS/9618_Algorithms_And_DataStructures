@@ -17,7 +17,7 @@ for example:
 some_unsorted_data = [1, 2, 3, -1, -2, -3, 0]
 i = 1
 j = i - 1
-key = some_data[i]
+key = some_unsorted_data[i]
 
 some_data = recursive_insertion_sort(some_unsorted_data, i, j, key)
 
